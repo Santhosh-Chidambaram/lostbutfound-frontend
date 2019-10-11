@@ -42,7 +42,7 @@ const Topnav = props => {
 	
 
 	return (
-		<nav>
+		<nav className="purple darken-4">
 			<div className='nav-wrapper purple'>
 				<ul id='nav' className='left'>
 					<li>
