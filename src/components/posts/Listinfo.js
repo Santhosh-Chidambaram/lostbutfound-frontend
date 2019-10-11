@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function LostView(props) {
+export function Lostcard(props) {
 	return (
 		<>
 			<div className='card'>
