@@ -1,6 +1,6 @@
 import React from 'react'
 //des,lat,long,name,img
-const Addpost = () => {
+const Addfound = () => {
     return (
         <div>
         <div className='container' style={{position:"absolute",left:"35%",top:"20%"}}>
@@ -47,4 +47,4 @@ const Addpost = () => {
     )
 }
 
-export default Addpost
+export default Addfound
