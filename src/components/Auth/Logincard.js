@@ -1,6 +1,36 @@
-import React,{useEffect} from "react"
+import React,{useEffect, useContext, useState} from "react"
+import authContext from '../../context/Auth/authContext'
 
-export const Logincard = () => {
+export const Logincard = (props) => {
+
+  const { login, isAuthenticated } = useContext(authContext)
+  
+  const [state, setstate] = useState({
+    email: '',
+    password: ''
+  })
+
+
+  const _onchange = e => {
+    setstate({
+      ...state,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const _onsubmit = e => {
+    e.preventDefault()
+
+    login(state)
+  }
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push('/home')
+    }
+    //eslint-disable-next-line
+  }, [isAuthenticated])
+
 
     return(
     <div className='container' style={{position:"absolute",left:"35%",top:"20%"}}>
@@ -9,21 +39,21 @@ export const Logincard = () => {
           <span className="card-title" ><b>LOGIN</b> </span>
             <div style={{marginTop:"20%"}}>
             <div className="input-field col s12">
-            <input id="email" type="email" className="validate"/>
+                <input id="email" type="email" className="validate" name="email" value={state.email} onChange={_onchange}/>
             <label htmlFor="email">Email</label>
             </div>
             <div className="input-field col s12" style={{marginTop:"50px"}}>
-            <input id="password" type="password" className="validate"/>
+                <input id="password" type="password" className="validate" value={state.password} onChange={_onchange}/>
             <label htmlFor="password">Password</label>
             </div>
             <div style={{marginTop:"15%"}}>
-            <a href="/test " className="waves-effect waves-light btn-large z-depth-3" style={{width:"50%",borderRadius:"500px",background:"linear-gradient(to right, #8e2de2, #4a00e0)"}}>Button</a>
+                <button onClick={_onsubmit}
+                  className="waves-effect waves-light btn-large z-depth-3"
+                  style={{ width: "50%", borderRadius: "500px", background: "linear-gradient(to right, #8e2de2, #4a00e0)" }}>Button</button>
             </div>
             
         </div>
 
-
-          
         </div>
         
       </div>

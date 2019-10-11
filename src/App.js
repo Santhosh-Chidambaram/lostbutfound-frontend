@@ -11,22 +11,32 @@ import { Registercard } from './components/Auth/Registercard'
 import { ListView } from './components/posts/ListView'
 
 import { Route, Switch } from 'react-router-dom'
+
+import AuthState from './context/Auth/AuthState'
+import setAuthToken from './utils/setAuthToken'
+
+if (localStorage.token) {
+	setAuthToken(localStorage.token)
+}
+
 const App = () => {
 	useEffect(() => {
 		M.AutoInit()
 	})
 	return (
 		<>
-			<Topnav />
+			<AuthState>
+				<Topnav />
 
-			<section className='background'>
-				<Switch>
-					<Route path='/' exact component={Logincard} />
-					<Route path='/login' exact component={Logincard} />
-					<Route path='/register' exact component={Registercard} />
-					<Route path='/test' exact component={ListView} />
-				</Switch>
-			</section>
+				<section className='background'>
+					<Switch>
+						<Route path='/' exact component={Logincard} />
+						<Route path='/login' exact component={Logincard} />
+						<Route path='/register' exact component={Registercard} />
+						<Route path='/test' exact component={ListView} />
+					</Switch>
+				</section>
+			</AuthState>
 		</>
 	)
 }
