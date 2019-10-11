@@ -1,7 +1,12 @@
 import React from 'react'
 import Mymap from '../helpers/Mymap'
+import { Modal, Button } from 'react-materialize';
+import '../../App.css'
+
 //des,lat,long,name,img
 const Addfound = () => {
+    const trigger = <Button>Open Modal</Button>;
+
 	return (
 		<div>
 			<div
@@ -41,19 +46,15 @@ const Addfound = () => {
 									<label for='first_name'></label>
                                 </div>
                                 
-                                <div class='input-field col s6'>
-                        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-
-                    
-                        <div id="modal1" class="modal">
-                            <div class="modal-content">
-                            <h4>Modal Header</h4>
-                            <p>A bunch of text</p>
-                            </div>
-                            <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-                            </div>
-                        </div>
+                                <div >
+                                <Button href="#modal1" className="modal-trigger">
+                                
+                                Show Modal
+                                
+                                </Button>
+                                <Modal id="modal1" header="Modal Header" style={{maxHeight:"100%"}}>
+                                <Mymap/>
+                                </Modal>
                                 </div>
                                 
 								<div class='input-field col s6'>

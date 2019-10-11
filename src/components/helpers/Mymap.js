@@ -19,8 +19,8 @@ const Mymap = (props) => {
     })
 
     const mapStyles = {
-        width: '70%',
-        height: '70vh',
+        width: '60%',
+        height: '60vh',
         margin: 'auto'
     }
 
