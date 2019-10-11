@@ -9,34 +9,34 @@ export const Registercard = () => {
 
     })
     return(
-    <div class='container' style={{position:"absolute",left:"35%",top:"20%"}}>
-      <div class="card z-depth-5  " style={{width:"30rem",height:"70vh",borderRadius:"10px"}}>
-        <div class="card-content " style={{textAlign:"center"}}>
-          <span class="card-title" ><b>REGISTER</b> </span>
+    <div className='container' style={{position:"absolute",left:"35%",top:"20%"}}>
+      <div className="card z-depth-5  " style={{width:"30rem",height:"70vh",borderRadius:"10px"}}>
+        <div className="card-content " style={{textAlign:"center"}}>
+          <span className="card-title" ><b>REGISTER</b> </span>
             <div >
-            <div class="input-field col s12">
-            <input id="email" type="email" class="validate"/>
-            <label for="email">Email</label>
+            <div className="input-field col s12">
+            <input id="email" type="email" className="validate"/>
+            <label htmlFor="email">Email</label>
             </div>
-            <div class="input-field col s12">
-          <input  id="username" type="text" class="validate"/>
-          <label for="username">Username</label>
+            <div className="input-field col s12">
+          <input  id="username" type="text" className="validate"/>
+          <label htmlFor="username">Username</label>
           </div>
-          <div class="input-field col s6">
-          <input id="icon_telephone" type="tel" class="validate"/>
-          <label for="icon_telephone">Telephone</label>
+          <div className="input-field col s6">
+          <input id="icon_telephone" type="tel" className="validate"/>
+          <label htmlFor="icon_telephone">Telephone</label>
           </div>
  
-            <div class="input-field col s12" >
-            <input id="password" type="password" class="validate"/>
-            <label for="password">Password</label>
+            <div className="input-field col s12" >
+            <input id="password" type="password" className="validate"/>
+            <label htmlFor="password">Password</label>
             </div>
-            <div class="input-field col s12" >
-            <input id="password" type="password" class="validate"/>
-            <label for="password">Repeat Password</label>
+            <div className="input-field col s12" >
+            <input id="password" type="password" className="validate"/>
+            <label htmlFor="password">Repeat Password</label>
             </div>
             <div style={{marginTop:"5%"}}>
-            <a href="/test " class="waves-effect waves-light btn-large z-depth-3" style={{width:"50%",borderRadius:"500px",background:"linear-gradient(to right, #8e2de2, #4a00e0)"}}>Button</a>
+            <a href="/test " className="waves-effect waves-light btn-large z-depth-3" style={{width:"50%",borderRadius:"500px",background:"linear-gradient(to right, #8e2de2, #4a00e0)"}}>Button</a>
             </div>
             
         </div>
