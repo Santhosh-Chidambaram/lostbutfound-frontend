@@ -45,11 +45,10 @@ const Addfound = () => {
 									/>
 									<label for='first_name'></label>
                                 </div>
-                                
                                 <div >
                                 <Button href="#modal1" className="modal-trigger">
                                 
-                                Show Modal
+                                Select Location
                                 
                                 </Button>
                                 <Modal id="modal1" header="Modal Header" style={{maxHeight:"100%"}}>
@@ -57,14 +56,9 @@ const Addfound = () => {
                                 </Modal>
                                 </div>
                                 
-								<div class='input-field col s6'>
-									<textarea
-										rows='4'
-										cols='50'
-										placeholder='Description..'
-									></textarea>
-									<p>lat long</p>
-								</div>
+                                
+                                
+								
 							</form>
 
 							<div style={{ marginTop: '15%' }}>
