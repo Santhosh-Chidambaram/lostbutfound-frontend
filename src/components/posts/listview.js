@@ -1,11 +1,10 @@
-import React from 'react';
-import {Lostcard} from './Listinfo'
+import React from 'react'
+import { Lostcard } from './Listinfo'
 
-export function ListView(){
-    return(
-        <>
-            <Lostcard/>
-        </>
-    )
-
+export function ListView() {
+	return (
+		<>
+			<Lostcard />
+		</>
+	)
 }
