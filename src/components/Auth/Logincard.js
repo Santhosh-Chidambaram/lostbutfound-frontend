@@ -1,12 +1,7 @@
 import React,{useEffect} from "react"
-import 'materialize-css/dist/css/materialize.min.css'
-import  M from 'materialize-css/dist/js/materialize.min.js'
 
 export const Logincard = () => {
-    useEffect(() =>{
-        M.AutoInit()
 
-    })
     return(
     <div className='container' style={{position:"absolute",left:"35%",top:"20%"}}>
       <div className="card z-depth-5  " style={{width:"30rem",height:"70vh",borderRadius:"10px"}}>
