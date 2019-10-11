@@ -1,11 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Mymap from '../helpers/Mymap'
-import { Modal, Button } from 'react-materialize';
+import { Modal, Button } from 'react-materialize'
 import '../../App.css'
 
 //des,lat,long,name,img
 const Addfound = () => {
-    const trigger = <Button>Open Modal</Button>;
+	const trigger = <Button>Open Modal</Button>
+
+	const [fstate, setfstate] = useState({
+		name: '',
+		lat: '',
+		lng: '',
+		file: null
+	})
+
+	const _onchange = e => {
+		setfstate({
+			...fstate,
+			[e.target.name]: e.target.value
+		})
+	}
+
+
+	const onFormSubmit = (e) => {
+		e.preventDefault() // Stop form submit
+
+
+		//send req
+		
+	}
+	const onChange = (e) => {
+		setfstate({...fstate, file: e.target.files[0] })
+	}
+	
 
 	return (
 		<div>
@@ -22,11 +49,11 @@ const Addfound = () => {
 							<b>FOUND</b>{' '}
 						</span>
 						<div style={{ marginTop: '20%' }}>
-							<form action='#'>
+							<form onSubmit={onsubmit}>
 								<div class='file-field input-field'>
 									<div class='btn'>
 										<span>File</span>
-										<input type='file' multiple />
+										<input type='file' onChange={onChange}/>
 									</div>
 									<div class='file-path-wrapper'>
 										<input
@@ -42,23 +69,24 @@ const Addfound = () => {
 										id='name'
 										type='text'
 										class='validate'
+										name="name"
+										value={fstate.name}
+										onChange={_onchange}
 									/>
 									<label for='first_name'></label>
-                                </div>
-                                <div >
-                                <Button href="#modal1" className="modal-trigger">
-                                
-                                Select Location
-                                
-                                </Button>
-                                <Modal id="modal1" header="Modal Header" style={{maxHeight:"100%"}}>
-                                <Mymap/>
-                                </Modal>
-                                </div>
-                                
-                                
-                                
-								
+								</div>
+								<div>
+									<Button href='#modal1' className='modal-trigger'>
+										Select Location
+									</Button>
+									<Modal
+										id='modal1'
+										header='choose your location'
+										style={{ maxHeight: '100%' }}
+									>
+										<Mymap data={{fstate, setfstate}}/>
+									</Modal>
+								</div>
 							</form>
 
 							<div style={{ marginTop: '15%' }}>

@@ -9,14 +9,20 @@ const Mymap = (props) => {
         lng: ''
     })
 
+    const { fstate, setfstate } = props.data
+    
+    const locState = {
+        lat: fstate.lat, lng: fstate.lng
+    }
+
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(position => {
             const { latitude, longitude } = position.coords
 
             console.log(latitude, longitude)
-            setstate({ lat: latitude, lng: longitude })
+            setfstate({...fstate, lat: latitude, lng: longitude })
         })
-    })
+    }, [])
 
     const mapStyles = {
         width: '60%',
@@ -33,7 +39,8 @@ const Mymap = (props) => {
         const lng = latLng.lng()
 
         console.log(lat, lng)
-        setstate({
+        setfstate({
+            ...fstate,
             lat,
             lng
         })
@@ -47,11 +54,11 @@ const Mymap = (props) => {
         const lat = clickEvent.latLng.lat()
         const lng = clickEvent.latLng.lng()
 
-        setstate({ lat, lng })
+        setfstate({ ...fstate,lat, lng })
     }
 
     const showRes = e => {
-        if (e) setstate({ lat: e.location.lat, lng: e.location.lng })
+        if (e) setfstate({ ...fstate,lat: e.location.lat, lng: e.location.lng })
     }
 
     return (
@@ -66,12 +73,12 @@ const Mymap = (props) => {
                 google={props.google}
                 zoom={15}
                 style={mapStyles}
-                center={state}
-                initialCenter={state}
+                center={locState}
+                initialCenter={locState}
                 onClick={mapClicked}
             >
                 <Marker
-                    position={state}
+                    position={locState}
                     draggable={true}
                     onDragend={(t, map, coord) => onMarkerDragEnd(coord)}
                 />
