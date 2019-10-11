@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css'
+
 import  Topnav  from './components/main/Topnav'
 import { useEffect } from 'react'
 
@@ -14,6 +15,8 @@ import { Route, Switch } from 'react-router-dom'
 
 import AuthState from './context/Auth/AuthState'
 import setAuthToken from './utils/setAuthToken'
+import PrivateRoute from './components/routing/PrivateRoute'
+import Addpost from './components/posts/Addpost'
 
 if (localStorage.token) {
 	setAuthToken(localStorage.token)
@@ -34,6 +37,7 @@ const App = () => {
 						<Route path='/login' exact component={Logincard} />
 						<Route path='/register' exact component={Registercard} />
 						<Route path='/test' exact component={ListView} />
+						<PrivateRoute path='/addpost' exact component={Addpost} />
 					</Switch>
 				</section>
 			</AuthState>
