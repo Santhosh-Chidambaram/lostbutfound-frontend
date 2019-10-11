@@ -9,6 +9,8 @@ import M from 'materialize-css/dist/js/materialize.min.js'
 import { Logincard } from './components/Auth/Logincard'
 import { Registercard } from './components/Auth/Registercard'
 
+
+import {Route, Switch} from 'react-router-dom'
 const App = () => {
 	useEffect(() => {
 		M.AutoInit()
@@ -17,8 +19,13 @@ const App = () => {
 		<>
 			<Topnav />
 
-			<section className='background'>
-				<Registercard />
+      <section className='background'>
+        <Switch>
+          <Route path='/' exact component={Logincard} />
+          <Route path='/login' exact component={Logincard} />
+          <Route path='/register' exact component={Registercard} />
+        </Switch>
+				
 			</section>
 		</>
 	)
