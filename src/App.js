@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import { Topnav } from './components/main/Topnav'
+import  Topnav  from './components/main/Topnav'
 import { useEffect } from 'react'
 
 import 'materialize-css/dist/css/materialize.min.css'

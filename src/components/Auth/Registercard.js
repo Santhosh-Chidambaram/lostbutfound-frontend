@@ -2,13 +2,14 @@ import React, { useEffect, useContext, useState } from 'react'
 import authContext from '../../context/Auth/authContext'
 
 export const Registercard = props => {
-	const { register, isAuthenticated } = useContext(authContext)
+	const { register, isAuthenticated, isCreated, loaduser } = useContext(authContext)
 
 	const [state, setstate] = useState({
-		name: '',
+		username: '',
 		email: '',
-		phone: '',
-		password: ''
+		phone_number: '',
+		password: '',
+		
 	})
 
 	const _onsubmit = e => {
@@ -26,9 +27,12 @@ export const Registercard = props => {
 	}
 
 	useEffect(() => {
+		loaduser()
 		if (isAuthenticated) {
 			props.history.push('/test')
 		}
+		if (isCreated)
+			props.history.push('/login')
 		//eslint-disable-next-line
 	}, [isAuthenticated])
 
@@ -61,9 +65,9 @@ export const Registercard = props => {
 							<input
 								id='username'
 								type='text'
-								name="name"
+								name="username"
 								className='validate'
-								value={state.name}
+								value={state.username}
 								onChange={_onchange}
 							/>
 							<label htmlFor='username'>Username</label>
@@ -72,9 +76,9 @@ export const Registercard = props => {
 							<input
 								id='icon_telephone'
 								type='tel'
-								name="phone"
+								name="phone_number"
 								className='validate'
-								value={state.phone}
+								value={state.phone_number}
 								onChange={_onchange}
 							/>
 							<label htmlFor='icon_telephone'>Telephone</label>
@@ -92,8 +96,8 @@ export const Registercard = props => {
 							<label htmlFor='password'>Password</label>
 						</div>
 						<div className='input-field col s12'>
-							<input id='password' type='password' className='validate' />
-							<label htmlFor='password'>Repeat Password</label>
+							<input id='cpassword' type='password' className='validate' />
+							<label htmlFor='cpassword'>Repeat Password</label>
 						</div>
 						<div style={{ marginTop: '5%' }}>
 							<button
