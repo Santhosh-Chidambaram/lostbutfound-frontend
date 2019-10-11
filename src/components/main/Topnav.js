@@ -24,14 +24,20 @@ const Topnav = props => {
 	const userlink = (
 		<>
 			<li>
-				<Link to='/login' onClick={onLogout}>logout</Link>
-			</li>
-			<li>
 				<Link to='/test'>my posts</Link>
 			</li>
-			
+
 			<li>
-				<Link to='/addpost'>Add Posts</Link>
+				<Link to='/addlost'>Add lost</Link>
+			</li>
+
+			<li>
+				<Link to='/addfound'>Add found</Link>
+			</li>
+			<li>
+				<Link to='/login' onClick={onLogout}>
+					logout
+				</Link>
 			</li>
 		</>
 	)
@@ -39,10 +45,9 @@ const Topnav = props => {
 		loaduser()
 		// eslint-disable-next-line
 	}, [])
-	
 
 	return (
-		<nav >
+		<nav>
 			<div className='nav-wrapper purple darken-4'>
 				<ul id='nav' className='left'>
 					<li>
