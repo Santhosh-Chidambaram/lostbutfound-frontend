@@ -10,7 +10,6 @@ export const Logincard = (props) => {
     password: ''
   })
 
-
   const _onchange = e => {
     setstate({
       ...state,
@@ -26,7 +25,7 @@ export const Logincard = (props) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      props.history.push('/home')
+      props.history.push('/test')
     }
     //eslint-disable-next-line
   }, [isAuthenticated])
@@ -43,13 +42,13 @@ export const Logincard = (props) => {
             <label htmlFor="email">Email</label>
             </div>
             <div className="input-field col s12" style={{marginTop:"50px"}}>
-                <input id="password" type="password" className="validate" value={state.password} onChange={_onchange}/>
+                <input id="password" type="password" name="password" className="validate" value={state.password} onChange={_onchange}/>
             <label htmlFor="password">Password</label>
             </div>
             <div style={{marginTop:"15%"}}>
                 <button onClick={_onsubmit}
                   className="waves-effect waves-light btn-large z-depth-3"
-                  style={{ width: "50%", borderRadius: "500px", background: "linear-gradient(to right, #8e2de2, #4a00e0)" }}>Button</button>
+                  style={{ width: "50%", borderRadius: "500px", background: "linear-gradient(to right, #8e2de2, #4a00e0)" }}>login</button>
             </div>
             
         </div>

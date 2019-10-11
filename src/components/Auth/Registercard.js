@@ -27,7 +27,7 @@ export const Registercard = props => {
 
 	useEffect(() => {
 		if (isAuthenticated) {
-			props.history.push('/home')
+			props.history.push('/test')
 		}
 		//eslint-disable-next-line
 	}, [isAuthenticated])
@@ -51,8 +51,9 @@ export const Registercard = props => {
 								id='email'
 								type='email'
 								className='validate'
+								name="email"
 								value={state.email}
-								onChange={state._onchange}
+								onChange={_onchange}
 							/>
 							<label htmlFor='email'>Email</label>
 						</div>
@@ -60,9 +61,10 @@ export const Registercard = props => {
 							<input
 								id='username'
 								type='text'
+								name="name"
 								className='validate'
 								value={state.name}
-								onChange={state._onchange}
+								onChange={_onchange}
 							/>
 							<label htmlFor='username'>Username</label>
 						</div>
@@ -70,9 +72,10 @@ export const Registercard = props => {
 							<input
 								id='icon_telephone'
 								type='tel'
+								name="phone"
 								className='validate'
 								value={state.phone}
-								onChange={state._onchange}
+								onChange={_onchange}
 							/>
 							<label htmlFor='icon_telephone'>Telephone</label>
 						</div>
@@ -82,8 +85,9 @@ export const Registercard = props => {
 								id='password'
 								type='password'
 								className='validate'
+								name="password"
 								value={state.password}
-								onChange={state._onchange}
+								onChange={_onchange}
 							/>
 							<label htmlFor='password'>Password</label>
 						</div>
@@ -101,7 +105,7 @@ export const Registercard = props => {
 									background: 'linear-gradient(to right, #8e2de2, #4a00e0)'
 								}}
 							>
-								Button
+								register
 							</button>
 						</div>
 					</div>
