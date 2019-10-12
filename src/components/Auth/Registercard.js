@@ -29,7 +29,7 @@ export const Registercard = props => {
 	useEffect(() => {
 		loaduser()
 		if (isAuthenticated) {
-			props.history.push('/test')
+			props.history.push('/myposts')
 		}
 		if (isCreated)
 			props.history.push('/login')

@@ -24,7 +24,7 @@ const Topnav = props => {
 	const userlink = (
 		<>
 			<li>
-				<Link to='/test'>my posts</Link>
+				<Link to='/myposts'>my posts</Link>
 			</li>
 
 			<li>

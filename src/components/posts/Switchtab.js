@@ -1,20 +1,25 @@
 import React from 'react'
+import { Link, Route } from 'react-router-dom'
+import { Tabs, Tab } from 'react-materialize'
+import Listinfo from './Listinfo'
 
-const Switchtab = () =>{
-    return(
-        <div className="container" style={{paddingTop:'10px',marginLeft:"500px"}}>
-        <div class="row">
-        <div class="col s6">
-        <ul class="tabs">
-            <li class="tab col s6"><a href="#test1">Lost</a></li>
-            <li class="tab col s6"><a class="active" href="#test2">Found</a></li>
-            
-        </ul>
-        </div>
-        </div>
-        </div>
-       
-    )
+const Switchtab = () => {
+	const dummy= {}
+	return (
+		<div
+			className='container'
+			style={{ paddingTop: '10px', marginLeft: '500px' }}
+		>
+			<Tabs className='tab-demo z-depth-1'>
+				<Tab title='LOST' active>
+					<Listinfo data={dummy}/>
+				</Tab>
+				<Tab title='FOUND'>
+					<Listinfo data={dummy}/>
+				</Tab>
+			</Tabs>
+		</div>
+	)
 }
 
 export default Switchtab

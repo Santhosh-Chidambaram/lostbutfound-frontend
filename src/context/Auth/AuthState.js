@@ -6,8 +6,8 @@ import setAuthToken from '../../utils/setAuthToken'
 
 import {
 	REGISTER_SUCCESS,
-    REGISTER_FAIL,
-    USER_LOADED,
+	REGISTER_FAIL,
+	USER_LOADED,
 	LOGIN_SUCCESS,
 	LOGIN_FAIL,
 	LOGOUT,
@@ -17,48 +17,48 @@ import {
 const AuthState = props => {
 	const initialState = {
 		token: localStorage.getItem('token'),
-        isAuthenticated: null,
-        isCreated: null,
-		loading: true,
+		isAuthenticated: null,
+		isCreated: null,
+		
 		error: null
 	}
 
-    const [state, dispatch] = useReducer(authReducer, initialState)
-    
-    // Load User
-    const loaduser = async () => {
-        if (localStorage.token) {
-            setAuthToken(localStorage.token)
+	const [state, dispatch] = useReducer(authReducer, initialState)
 
-            dispatch({
-                type: USER_LOADED,
-                payload: localStorage.token
-            })
-        }
+	// Load User
+	const loaduser = async () => {
+		if (localStorage.token) {
+			setAuthToken(localStorage.token)
 
-    }
+			dispatch({
+				type: USER_LOADED,
+				payload: localStorage.token
+			})
+		}
+	}
 
 	// Register User
 	const register = async formData => {
 		try {
 			console.log(formData)
-            const { email, username, phone_number, password } = formData
-            
+			const { email, username, phone_number, password } = formData
+
 			const response = await fetch('http://192.168.43.46:8000/register/', {
 				method: 'POST',
 				body: new URLSearchParams(
 					`email=${email}&password=${password}&phone_number=${phone_number}&username=${username}`
 				),
-				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				}
 			})
-           // const res = await response.json()
-            
-            dispatch({
-                type: REGISTER_SUCCESS,
-            })
+			// const res = await response.json()
 
-            loaduser()
-			
+			dispatch({
+				type: REGISTER_SUCCESS
+			})
+
+			loaduser()
 		} catch (err) {
 			dispatch({
 				type: REGISTER_FAIL,
@@ -70,11 +70,7 @@ const AuthState = props => {
 
 	// Login User
 	const login = async formData => {
-		const config = {
-			headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-			}
-		}
+	
 
 		const { email, password } = formData
 
@@ -82,7 +78,9 @@ const AuthState = props => {
 			const response = await fetch('http://192.168.43.46:8000/login/', {
 				method: 'POST',
 				body: new URLSearchParams(`email=${email}&password=${password}`),
-				headers: config.headers
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+				}
 			})
 			const res = await response.json()
 
@@ -93,8 +91,7 @@ const AuthState = props => {
 				payload: res.token
 			})
 
-            loaduser()
-            
+			loaduser()
 		} catch (err) {
 			dispatch({
 				type: LOGIN_FAIL,
@@ -114,15 +111,15 @@ const AuthState = props => {
 			value={{
 				token: state.token,
 				isAuthenticated: state.isAuthenticated,
-				loading: state.loading,
+				
 				user: state.user,
 				error: state.error,
 				register,
 				isCreated: state.isCreated,
 				login,
 				logout,
-                clearErrors,
-                loaduser
+				clearErrors,
+				loaduser
 			}}
 		>
 			{props.children}

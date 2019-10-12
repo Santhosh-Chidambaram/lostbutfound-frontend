@@ -47,6 +47,7 @@ const Mymap = (props) => {
     }
 
     const onschange = value => {
+   
         setsname(value)
     }
 

@@ -25,7 +25,7 @@ export const Logincard = props => {
   useEffect(() => {
     loaduser()
 		if (isAuthenticated) {
-			props.history.push('/test')
+			props.history.push('/myposts')
 		}
 		//eslint-disable-next-line
 	}, [isAuthenticated])
