@@ -8,13 +8,13 @@ const Switchtab = () => {
 	return (
 		<div
 			className='container'
-			style={{ paddingTop: '10px', marginLeft: '500px' }}
+			style={{ paddingTop: '10px', }}
 		>
-			<Tabs className='tab-demo z-depth-1'>
-				<Tab title='LOST' active>
+			<Tabs className='tab-demo z-depth-1 tabs-fixed-width'>
+				<Tab title='LOST' active >
 					<Listinfo data={dummy}/>
 				</Tab>
-				<Tab title='FOUND'>
+				<Tab title='FOUND'  >
 					<Listinfo data={dummy}/>
 				</Tab>
 			</Tabs>
