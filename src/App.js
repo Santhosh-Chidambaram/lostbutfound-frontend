@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 
 import 'materialize-css/dist/css/materialize.min.css'
 import M from 'materialize-css/dist/js/materialize.min.js'
-
+import 'material-icons'
 import { Logincard } from './components/Auth/Logincard'
 import { Registercard } from './components/Auth/Registercard'
 import { ListView } from './components/posts/ListView'
