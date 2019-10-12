@@ -1,16 +1,15 @@
 .background {
 	width: 100%;
-	height: 91vh;
-	background-size: cover;
-	background-position: top;
-	background-image: linear-gradient(
-			to right,
-			rgba(142, 45, 226, 0.2),
-			rgba(74, 0, 224, 0.2)
-		),
-		url('./authbg.jpg');
+	height: 100vh;
+	background-attachment: fixed;
+	background: linear-gradient(to right, #2f2fb6, #608ee4, #0ff1e2);
+	
+		
+		
 }
-
+.card{
+	z-index: 2;
+}
 #modal1 {
 	width: 80% !important ;
 	height: 100% !important ;

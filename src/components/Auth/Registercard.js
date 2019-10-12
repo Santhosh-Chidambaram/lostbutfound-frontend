@@ -42,7 +42,7 @@ export const Registercard = props => {
 			style={{ position: 'absolute', left: '35%', top: '20%' }}
 		>
 			<div
-				className='card z-depth-5  '
+				className='card z-depth-5   '
 				style={{ width: '30rem', height: '70vh', borderRadius: '10px' }}
 			>
 				<div className='card-content ' style={{ textAlign: 'center' }}>
